@@ -4,67 +4,67 @@ use N3;
 
 #-------------------CREATE-------------------------
 CREATE TABLE person(
-	id 				int 			auto_increment 	PRIMARY KEY,
-	surname 		varchar(255) 	NOT NULL,
-	firstname 		varchar(255) 	NOT NULL,
-	middle_name 	varchar(255) 	NOT NULL,
+	id 		int 			auto_increment 	PRIMARY KEY,
+	surname 	varchar(255) 		NOT NULL,
+	firstname 	varchar(255) 		NOT NULL,
+	middle_name 	varchar(255) 		NOT NULL,
 	date_of_birth 	date 			NOT NULL,
-	photo 			varchar(255) 	NULL,
-	autobiography 	varchar(255) 	NULL,
+	photo 		varchar(255) 		NULL,
+	autobiography 	varchar(255) 		NULL,
 	date_of_entry 	date 			NOT NULL,
-    id_group		int				NULL,
-    id_city			int				NOT NULL
+    id_group		int			NULL,
+    id_city		int			NOT NULL
 );
 
 CREATE TABLE result_of_student(
-	id 				int 			auto_increment 	PRIMARY KEY,
+    id 			int 			auto_increment 	PRIMARY KEY,
     first_mudule 	int 			NULL,
     second_mudule 	int 			NULL,
-    long_estimate	int				NULL,
-    short_estimate	int				NULL,
+    long_estimate	int			NULL,
+    short_estimate	int			NULL,
     id_subject		int 			NOT NULL
 );
 
 CREATE TABLE teacher(
-	id 				int 			auto_increment 	PRIMARY KEY,
+	id 			int 		auto_increment 	PRIMARY KEY,
 	surname 		varchar(255) 	NOT NULL,
 	firstname 		varchar(255) 	NOT NULL,
-	middle_name 	varchar(255) 	NOT NULL,
-	date_of_birth 	date 			NOT NULL
+	middle_name 		varchar(255) 	NOT NULL,
+	date_of_birth 		date 		NOT NULL
 );
 
 CREATE TABLE group_of_students(
-	id 				int 			auto_increment 	PRIMARY KEY,
+    id 				int 		auto_increment 	PRIMARY KEY,
     name 			varchar(255) 	NOT NULL,
     code 			varchar(55)  	NOT NULL
 );
 
 CREATE TABLE city(
-	id 				int 			auto_increment  PRIMARY KEY,
+	id 			int 		auto_increment  PRIMARY KEY,
 	name 			varchar(255) 	NOT NULL
 );
 
 CREATE TABLE subject_of_study(
-	id 				int 			auto_increment 	PRIMARY KEY,
-	name 			varchar(255) 	NOT NULL,
+	id 		int 		auto_increment 	PRIMARY KEY,
+	name 		varchar(255) 	NOT NULL,
 	student_term 	ENUM('FIRST','SECOND') NOT NULL,
-    type_of_control ENUM('EXAM','TEST') NOT NULL 
+    	type_of_control ENUM('EXAM','TEST') NOT NULL 
 );
 
 CREATE TABLE current_level(
-	id 				int 			auto_increment 	PRIMARY KEY,
-    student_level	int				NULL,
+    id 					int auto_increment PRIMARY KEY,
+    student_level			int NULL,
     studentship	ENUM('STANDART','HIGH') NULL	
     
 );
 
 CREATE TABLE teacher_and_subject(
-	id_teacher 		int,
+    id_teacher 		int,
     id_subject		int
 );
 
 CREATE TABLE person_and_result(
-	id_person		int,
+    id_person		int,
     id_result		int
 );
 
