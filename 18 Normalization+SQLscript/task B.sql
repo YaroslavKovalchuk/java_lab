@@ -8,16 +8,14 @@ GROUP BY maker
 HAVING maker NOT IN(SELECT maker FROM product WHERE type ='laptop');
 
 # 2
-SELECT maker FROM product
-WHERE maker <> ALL (SELECT maker FROM product WHERE type ='printer' )
+SELECT maker FROM (SELECT * FROM product WHERE type ='pc' GROUP BY maker) as product1
+WHERE maker <> ALL (SELECT maker FROM product  WHERE type ='laptop' )
 GROUP BY maker
-HAVING maker >= ALL(SELECT maker FROM product WHERE type ='pc');
 
 # 3 -
-SELECT maker FROM product
-WHERE maker = ANY (SELECT maker FROM product WHERE type !='laptop')
+SELECT maker FROM (SELECT * FROM product WHERE type ='pc' GROUP BY maker) as product1
+WHERE maker = ANY (SELECT p1.maker, p2.maker FROM product p1, product p2 WHERE p1.type !='laptop'AND p2.type !='pc' AND  p1.maker != p2.maker GROUP BY p1.maker)
 GROUP BY maker
-HAVING maker = ANY(SELECT maker FROM product WHERE type ='pc');
 
 # 4
 SELECT maker FROM product
@@ -26,8 +24,11 @@ GROUP BY maker
 HAVING maker IN(SELECT maker FROM product WHERE type ='laptop');
 
 # 5
-SELECT maker FROM product
-WHERE maker <> ALL (SELECT maker FROM product WHERE type ='pc')
+SELECT maker FROM (SELECT maker FROM product WHERE type ='pc') product1
+WHERE maker <> ALL (SELECT maker FROM product WHERE type !='laptop')
 GROUP BY maker
-HAVING maker = ALL(maker);
 
+# 6 
+SELECT maker FROM (SELECT maker FROM product WHERE type ='laptop') product1
+WHERE maker = ANY (SELECT maker FROM product WHERE type ='pc')
+GROUP BY maker
