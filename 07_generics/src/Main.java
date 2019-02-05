@@ -27,7 +27,7 @@ public class Main {
         System.out.println(ship.get(2).getName());
     
 
-        DroidsQueue<Droid> droidsQueue = new DroidsQueue<>();
+        DroidsQueue<Droid> droidsQueue = new DroidsQueue<>(new Droid());
         droidsQueue.add(ivan);
         droidsQueue.add(andriy);
         droidsQueue.add(denys);
