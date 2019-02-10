@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.0.1" timestamp="2019-02-11T00:13:05.410">
+<file name="C:\Users\Yaroslav\IdeaProjects\binaryTreeMap\src\main\java\Tree.java">
+<violation beginline="23" endline="23" begincolumn="17" endcolumn="22" rule="UnusedLocalVariable" ruleset="Best Practices" class="Tree" method="containsKey" variable="parent" externalInfoUrl="https://pmd.github.io/pmd-6.0.1/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'parent'.
+</violation>
+<violation beginline="160" endline="160" begincolumn="69" endcolumn="69" rule="EmptyStatementNotInLoop" ruleset="Error Prone" class="Tree" method="remove" externalInfoUrl="https://pmd.github.io/pmd-6.0.1/pmd_rules_java_errorprone.html#emptystatementnotinloop" priority="3">
+An empty statement (semicolon) not part of a loop
+</violation>
+</file>
+</pmd>
